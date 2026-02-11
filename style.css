@@ -13,6 +13,10 @@ h1, h2, h3 {
     font-family: 'Playfair Display', serif;
 }
 
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
 .glass-nav {
     background: rgba(248, 247, 235, 0.8);
     backdrop-filter: blur(10px);
@@ -35,4 +39,13 @@ h1, h2, h3 {
 
 .animate-slow-pulse {
     animation: slow-pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Service Details Accordion */
+.service-details {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.service-details[data-icon="arrow"] {
+    transition: transform 0.3s ease-out;
 }

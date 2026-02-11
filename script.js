@@ -1,4 +1,4 @@
-// Service Details Toggle
+// Service Details Toggle with Smooth Animation
 (function(){
     const toggles = document.querySelectorAll('.service-toggle');
     toggles.forEach(toggle => {
@@ -6,20 +6,30 @@
             e.preventDefault();
             const serviceId = this.getAttribute('data-service');
             const details = document.querySelector(`.service-details[data-service="${serviceId}"]`);
-            const isHidden = details.classList.contains('hidden');
+            const arrowIcon = this.querySelector('[data-icon="arrow"]');
+            const isExpanded = details.classList.contains('expanded');
             
-            // Hide all other details
+            // Close all other details
             document.querySelectorAll('.service-details').forEach(d => {
-                d.classList.add('hidden');
+                if(d !== details && d.classList.contains('expanded')) {
+                    d.classList.remove('expanded');
+                    d.style.maxHeight = '0px';
+                    const relatedToggle = document.querySelector(`.service-toggle[data-service="${d.getAttribute('data-service')}"]`);
+                    if(relatedToggle) {
+                        relatedToggle.querySelector('[data-icon="arrow"]').style.transform = 'rotate(0deg)';
+                    }
+                }
             });
             
             // Toggle current details
-            if(isHidden){
-                details.classList.remove('hidden');
-                this.textContent = 'Chiudi ↑';
+            if(isExpanded){
+                details.classList.remove('expanded');
+                details.style.maxHeight = '0px';
+                arrowIcon.style.transform = 'rotate(0deg)';
             } else {
-                details.classList.add('hidden');
-                this.textContent = 'Scopri di più →';
+                details.classList.add('expanded');
+                details.style.maxHeight = details.scrollHeight + 'px';
+                arrowIcon.style.transform = 'rotate(90deg)';
             }
         });
     });

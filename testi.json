@@ -29,22 +29,62 @@
       }
     ]
   },
+  "curriculum": {
+    "titolo": "Formazione e Percorso Professionale",
+    "formazione": [
+      {
+        "anno": "2023",
+        "titolo": "Specializzazione in Psicoterapia Sistemico-Relazionale",
+        "descrizione": "Istituto di Terapia Familiare, Roma. Approccio orientato alla dinamica dei sistemi relazionali."
+      },
+      {
+        "anno": "2021",
+        "titolo": "Laurea Magistrale in Psicologia Clinica",
+        "descrizione": "Università La Sapienza, Roma. Tesi sulla comunicazione nella coppia contemporanea."
+      },
+      {
+        "anno": "2019",
+        "titolo": "Laurea Triennale in Scienze Psicologiche",
+        "descrizione": "Università La Sapienza, Roma. Votazione: 110/110 con lode."
+      }
+    ],
+    "esperienze": [
+      {
+        "anno": "2024-Presente",
+        "titolo": "Psicologa Clinica Libera Professionista",
+        "descrizione": "Conduzione di percorsi terapeutici individuali, di coppia e familiari presso lo studio privato a Roma."
+      },
+      {
+        "anno": "2022-2023",
+        "titolo": "Psicologa presso Centro Salute Mentale",
+        "descrizione": "Supporto psicoterapeutico in ambito pubblico, con focus su disturbi dell'umore e ansia."
+      },
+      {
+        "anno": "2020-2022",
+        "titolo": "Tirocinante Psicologa Clinica",
+        "descrizione": "Stage formativo presso struttura ospedaliera con supervisione specializzata."
+      }
+    ]
+  },
   "servizi": {
     "titolo": "Servizi Clinici",
     "items": [
       {
         "titolo": "Terapia Individuale",
         "descrizione": "Percorsi personalizzati per affrontare ansia, depressione e difficoltà relazionali.",
+        "dettagli_estesi": "La terapia individuale rappresenta uno spazio intimo e riservato dove esplorare le proprie difficoltà emotive, i conflitti interiori e i pattern comportamentali che ostacolano il benessere. Utilizzo un approccio sistemico-relazionale che considera il singolo all'interno del suo contesto di vita, sia esso familiare, professionale o sociale. Ogni seduta è strutturata per favorire l'insight personale e lo sviluppo di nuove risorse coping. La durata di ogni percorso varia da alcuni mesi a percorsi più lunghi, a seconda delle necessità e degli obiettivi condivisi.",
         "icona": "user"
       },
       {
         "titolo": "Terapia di Coppia",
         "descrizione": "Spazio di mediazione e ascolto per ricostruire la comunicazione e l'intimità.",
+        "dettagli_estesi": "La relazione di coppia è una danza complessa dove incomprensioni, aspettative non dichiarate e ferite accumulate possono erodere la connessione. Offro uno spazio neutrale dove entrambi i partner possono essere ascoltati senza giudizio. Attraverso tecniche di comunicazione consapevole e rielaborazione dei conflitti, aiuto le coppie a ritrovare dialogo, intimità emotiva e sessuale. Il focus è tanto sulla risoluzione dei conflitti specifici quanto sulla ricostruzione della base relazionale.",
         "icona": "users"
       },
       {
         "titolo": "Terapia Familiare",
         "descrizione": "Interventi volti a migliorare le dinamiche tra genitori e figli in fasi critiche.",
+        "dettagli_estesi": "La famiglia è il primo sistema relazionale dove impariamo i pattern di comunicazione, attaccamento e gestione delle emozioni. Quando emergono difficoltà—che siano conflitti genitoriali, rebilione adolescenziale o comunicazione disfunzionale—interveniamo sul sistema nel suo complesso. La terapia familiare permette a ogni membro di essere ascoltato, comprende le lealtà nascoste e i ruoli assunti, e favorisce nuovi equilibri più sani e consapevoli. Particolarmente efficace durante transizioni critiche come separazioni, lutti o cambiamenti generazionali.",
         "icona": "home"
       }
     ]
@@ -54,6 +94,8 @@
     "sottotitolo": "Ricevo su appuntamento a Roma e online.",
     "telefono": "+39 347 000 0000",
     "email": "info@susannamancini.it",
+    "indirizzo": "Via della Lungara, 23 - 00165 Roma (RM)",
+    "foto_studio": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
     "form": {
       "nome_placeholder": "Nome completo",
       "email_placeholder": "Email",

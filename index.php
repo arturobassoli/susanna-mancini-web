@@ -14,7 +14,7 @@ $testi = json_decode($json_data, true);
 
         <nav class="fixed w-full z-50 glass-nav">
             <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold tracking-tighter text-[#2788a5]"><?php echo $testi['navbar']['logo']; ?></span>
+            <img src="asset/symbol_bold_colored.png" alt="Logo" class="h-12 w-auto">
             <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold items-baseline">
             <a href="#home" class="hover:text-[#2788a5] transition"><?php echo $testi['navbar']['links'][0]; ?></a>
             <a href="#chi-sono" class="hover:text-[#2788a5] transition"><?php echo $testi['navbar']['links'][1]; ?></a>
@@ -38,7 +38,7 @@ $testi = json_decode($json_data, true);
     <div id="mobile-menu" class="md:hidden fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 bg-[rgba(248,247,235,0.98)] h-screen">
         <div class="max-w-md h-full mx-auto flex flex-col p-6">
             <div class="flex items-center justify-between">
-                <span class="text-xl font-bold tracking-tighter text-[#2788a5]"><?php echo $testi['navbar']['logo']; ?></span>
+                <img src="asset/symbol_bold_colored.png" alt="Logo" class="h-12 w-auto">
                 <button id="mobile-menu-close" aria-label="Chiudi menu" class="p-2 rounded-md text-[#2788a5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2788a5]">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
@@ -96,20 +96,67 @@ $testi = json_decode($json_data, true);
     </div>
 </section>
 
+<section id="curriculum" class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl mb-16 text-center"><?php echo $testi['curriculum']['titolo']; ?></h2>
+        
+        <!-- Formazione -->
+        <div class="mb-20">
+            <h3 class="text-2xl font-playfair font-bold text-[#2788a5] mb-12">Formazione</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <?php foreach ($testi['curriculum']['formazione'] as $item): ?>
+                <div class="relative pl-8 pb-12 border-l-2 border-gray-300 hover:border-[#2788a5] transition duration-300">
+                    <div class="absolute left-0 top-0 w-4 h-4 bg-[#2788a5] rounded-full transform -translate-x-[9px]"></div>
+                    <p class="font-bold text-[#2788a5] text-lg mb-2"><?php echo $item['anno']; ?></p>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2"><?php echo $item['titolo']; ?></h4>
+                    <p class="text-gray-600 text-sm leading-relaxed"><?php echo $item['descrizione']; ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <!-- Esperienze -->
+        <div>
+            <h3 class="text-2xl font-playfair font-bold text-[#2788a5] mb-12">Esperienze Professionali</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <?php foreach ($testi['curriculum']['esperienze'] as $item): ?>
+                <div class="relative pl-8 pb-12 border-l-2 border-gray-300 hover:border-[#2788a5] transition duration-300">
+                    <div class="absolute left-0 top-0 w-4 h-4 bg-[#2788a5] rounded-full transform -translate-x-[9px]"></div>
+                    <p class="font-bold text-[#2788a5] text-lg mb-2"><?php echo $item['anno']; ?></p>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2"><?php echo $item['titolo']; ?></h4>
+                    <p class="text-gray-600 text-sm leading-relaxed"><?php echo $item['descrizione']; ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="servizi" class="py-24 px-6">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl mb-4"><?php echo $testi['servizi']['titolo']; ?></h2>
             <div class="h-1 w-20 bg-[#2788a5] mx-auto"></div>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <?php foreach ($testi['servizi']['items'] as $servizio): ?>
+        <div class="grid md:grid-cols-3 items-start gap-8">
+            <?php foreach ($testi['servizi']['items'] as $idx => $servizio): ?>
             <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition group border-2 border-transparent hover:border-[#2788a5]">
                 <div class="w-12 h-12 bg-[#f8f7eb] rounded-full mb-6 flex items-center justify-center group-hover:bg-[#2788a5] transition">
                     <svg class="w-6 h-6 text-[#2788a5] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
                 <h3 class="text-2xl mb-4"><?php echo $servizio['titolo']; ?></h3>
-                <p class="text-gray-500 text-sm"><?php echo $servizio['descrizione']; ?></p>
+                <p class="text-gray-500 text-sm mb-6"><?php echo $servizio['descrizione']; ?></p>
+                
+                <button class="service-toggle text-sm font-semibold text-[#2788a5] hover:text-gray-900 transition flex items-center gap-2" data-service="<?php echo $idx; ?>">
+                    <span>Scopri di più</span>
+                    <svg class="w-4 h-4 transition-transform" data-icon="arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                
+                <div class="service-details max-h-0 overflow-hidden transition-all duration-300 ease-out" data-service="<?php echo $idx; ?>">
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-gray-600 text-sm leading-relaxed"><?php echo $servizio['dettagli_estesi']; ?></p>
+                    </div>
+                </div>
             </div>
             <?php endforeach; ?>
         </div>
@@ -117,21 +164,61 @@ $testi = json_decode($json_data, true);
 </section>
 
 <section id="contatti" class="py-24 px-6 bg-[#f8f7eb]">
-    <div class="max-w-4xl mx-auto bg-white rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row">
-        <div class="p-12 md:w-1/2 bg-[#2788a5] text-white">
-            <h2 class="text-3xl mb-6"><?php echo $testi['contatti']['titolo']; ?></h2>
-            <p class="mb-8 opacity-90"><?php echo $testi['contatti']['sottotitolo']; ?></p>
-            <div class="space-y-4">
-                <p class="flex items-center gap-4"><span class="font-bold">Tel:</span> <a class="hover:opacity-70" href="tel:<?php echo $testi['contatti']['telefono']; ?>"><?php echo $testi['contatti']['telefono']; ?></a></p>
-                <p class="flex items-center gap-4"><span class="font-bold">Email:</span> <a class="hover:opacity-70" href="mailto:<?php echo $testi['contatti']['email']; ?>"><?php echo $testi['contatti']['email']; ?></a></p>
-            </div>
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-16 text-center">
+            <h2 class="text-4xl md:text-5xl mb-4"><?php echo $testi['contatti']['titolo']; ?></h2>
+            <div class="h-1 w-20 bg-[#2788a5] mx-auto"></div>
         </div>
-        <form class="p-12 md:w-1/2 space-y-4">
-            <input type="text" placeholder="<?php echo $testi['contatti']['form']['nome_placeholder']; ?>" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5]">
-            <input type="email" placeholder="<?php echo $testi['contatti']['form']['email_placeholder']; ?>" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5]">
-            <textarea placeholder="<?php echo $testi['contatti']['form']['messaggio_placeholder']; ?>" rows="4" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5]"></textarea>
-            <button class="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#2788a5] transition duration-500"><?php echo $testi['contatti']['form']['submit_button']; ?></button>
-        </form>
+        
+        <!-- Foto Studio -->
+        <div class="mb-16">
+            <img src="<?php echo $testi['contatti']['foto_studio']; ?>" alt="Studio della Dr.ssa Susanna Mancini" class="w-full h-96 object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+        </div>
+
+        <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl grid md:grid-cols-2 gap-0">
+            <!-- Left: Contact Info -->
+            <div class="p-12 bg-[#2788a5] text-white flex flex-col justify-center">
+                <h2 class="text-3xl mb-8 font-playfair"><?php echo $testi['contatti']['titolo']; ?></h2>
+                <p class="mb-10 opacity-90"><?php echo $testi['contatti']['sottotitolo']; ?></p>
+                
+                <div class="space-y-6 mb-8">
+                    <!-- Telefono -->
+                    <div class="flex items-start gap-4">
+                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <div>
+                            <p class="text-sm opacity-75">Telefono</p>
+                            <a href="tel:<?php echo $testi['contatti']['telefono']; ?>" class="font-semibold hover:opacity-70 transition"><?php echo $testi['contatti']['telefono']; ?></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="flex items-start gap-4">
+                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div>
+                            <p class="text-sm opacity-75">Email</p>
+                            <a href="mailto:<?php echo $testi['contatti']['email']; ?>" class="font-semibold hover:opacity-70 transition"><?php echo $testi['contatti']['email']; ?></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Indirizzo -->
+                    <div class="flex items-start gap-4">
+                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div>
+                            <p class="text-sm opacity-75">Studio</p>
+                            <p class="font-semibold"><?php echo $testi['contatti']['indirizzo']; ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <form class="p-12 space-y-4 bg-white flex flex-col justify-center">
+                <input type="text" placeholder="<?php echo $testi['contatti']['form']['nome_placeholder']; ?>" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5] bg-transparent">
+                <input type="email" placeholder="<?php echo $testi['contatti']['form']['email_placeholder']; ?>" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5] bg-transparent">
+                <textarea placeholder="<?php echo $testi['contatti']['form']['messaggio_placeholder']; ?>" rows="4" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5] bg-transparent resize-none"></textarea>
+                <button class="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#2788a5] transition duration-500 font-semibold"><?php echo $testi['contatti']['form']['submit_button']; ?></button>
+            </form>
+        </div>
     </div>
 </section>
 
