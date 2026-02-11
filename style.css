@@ -1,0 +1,38 @@
+:root {
+    --primary: #2788a5;
+    --bg-warm: #f8f7eb;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-warm);
+    color: #333;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.glass-nav {
+    background: rgba(248, 247, 235, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(39, 136, 165, 0.2);
+}
+
+.hero-clamp {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+}
+
+.organic-shape {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+}
+
+@keyframes slow-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.2; }
+}
+
+.animate-slow-pulse {
+    animation: slow-pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

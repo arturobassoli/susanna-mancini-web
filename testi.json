@@ -1,0 +1,67 @@
+{
+  "seo": {
+    "title": "Dr.ssa Susanna Mancini | Psicologa Psicoterapeuta",
+    "piva": "12345678901",
+    "year": "2025"
+  },
+  "navbar": {
+    "logo": "S.M.",
+    "links": ["Home", "Chi Sono", "Servizi", "Contatti"]
+  },
+  "hero": {
+    "titolo": "Trovare l'equilibrio nelle <span class='italic text-[#2788a5]'>relazioni.</span>",
+    "sottotitolo": "Dr.ssa Susanna Mancini. Psicologa clinica specializzanda in Psicoterapia Sistemico-Relazionale. Accompagno individui, coppie e famiglie verso una nuova consapevolezza.",
+    "cta_button": "Inizia il tuo percorso"
+  },
+  "chi_sono": {
+    "titolo": "Un approccio centrato sul <span class='text-[#2788a5]'>sistema</span>.",
+    "testo": "Non siamo isole, ma parte di una rete intricata di relazioni. Il mio lavoro consiste nell'esplorare questi legami per sciogliere i nodi che impediscono la crescita personale e il benessere comune.",
+    "cards": [
+      {
+        "titolo": "Visione",
+        "testo": "Ogni sintomo è un messaggio che il sistema sta inviando.",
+        "stile": "visione"
+      },
+      {
+        "titolo": "Metodo",
+        "testo": "Dialogo attivo, ascolto profondo ed empatia radicale.",
+        "stile": "metodo"
+      }
+    ]
+  },
+  "servizi": {
+    "titolo": "Servizi Clinici",
+    "items": [
+      {
+        "titolo": "Terapia Individuale",
+        "descrizione": "Percorsi personalizzati per affrontare ansia, depressione e difficoltà relazionali.",
+        "icona": "user"
+      },
+      {
+        "titolo": "Terapia di Coppia",
+        "descrizione": "Spazio di mediazione e ascolto per ricostruire la comunicazione e l'intimità.",
+        "icona": "users"
+      },
+      {
+        "titolo": "Terapia Familiare",
+        "descrizione": "Interventi volti a migliorare le dinamiche tra genitori e figli in fasi critiche.",
+        "icona": "home"
+      }
+    ]
+  },
+  "contatti": {
+    "titolo": "Prenota un colloquio",
+    "sottotitolo": "Ricevo su appuntamento a Roma e online.",
+    "telefono": "+39 347 000 0000",
+    "email": "info@susannamancini.it",
+    "form": {
+      "nome_placeholder": "Nome completo",
+      "email_placeholder": "Email",
+      "messaggio_placeholder": "Il tuo messaggio",
+      "submit_button": "Invia Richiesta"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Dr.ssa Susanna Mancini | P.IVA 12345678901 | Privacy & Cookies"
+  }
+}
