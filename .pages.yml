@@ -116,7 +116,6 @@ content:
           - name: formazione
             label: Formazione
             type: object
-            description: Le voci compaiono nell'ordine in cui sono qui (trascinale per riordinarle).
             list:
               min: 1
               collapsible:
@@ -129,7 +128,6 @@ content:
           - name: esperienze
             label: Esperienze professionali
             type: object
-            description: Le voci compaiono nell'ordine in cui sono qui (trascinale per riordinarle).
             list:
               min: 1
               collapsible:
@@ -149,9 +147,8 @@ content:
             type: string
             required: true
           - name: elenco
-            label: Servizi offerti
+            label: Servizi offerti (consigliati 3)
             type: object
-            description: Il sito è pensato per 3 servizi affiancati.
             list:
               min: 1
               max: 6
