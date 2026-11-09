@@ -13,7 +13,7 @@
   },
   "hero": {
     "titolo": "Trovare l'equilibrio nelle *relazioni.*",
-    "sottotitolo": "Dr.ssa Susanna Mancini. Psicologa clinica specializzanda in Psicoterapia Sistemico Relazionale. Accompagno individui, coppie e famiglie verso una nuova consapevolezza.",
+    "sottotitolo": "Dr.ssa Susanna Mancini. Psicologa clinica specializzanda in Psicoterapia Sistemico-Relazionale. Accompagno individui, coppie e famiglie verso una nuova consapevolezza.",
     "pulsante": "Inizia il tuo percorso",
     "foto": "asset/immagini/foto-ritratto.jpg"
   },
@@ -92,7 +92,7 @@
     "telefono": "+39 347 000 0000",
     "email": "info@susannamancini.it",
     "indirizzo": "Via della Lungara, 23 - 00165 Roma (RM)",
-    "foto_studio": "asset/immagini/foto-studio.jpg",
+    "foto_studio": "asset/immagini/firefoxscreenshot2026-05-04t19-52-40623z.png",
     "modulo": {
       "campo_nome": "Nome completo",
       "campo_email": "Email",
