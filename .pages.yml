@@ -1,0 +1,187 @@
+# Configurazione del pannello Pages CMS (https://app.pagescms.org)
+# Espone solo i contenuti di testi.json: la struttura del sito non è modificabile da qui.
+
+media:
+  input: asset/immagini
+  output: asset/immagini
+  rename: safe
+  extensions: [jpg, jpeg, png, webp]
+
+settings:
+  content:
+    merge: true   # non cancellare eventuali chiavi di testi.json non descritte qui
+
+content:
+  - name: testi
+    label: Testi e immagini del sito
+    type: file
+    path: testi.json
+    format: json
+    fields:
+      - name: generale
+        label: Dati generali
+        type: object
+        fields:
+          - name: nome
+            label: Nome
+            type: string
+            required: true
+            description: Usato nel footer e come descrizione delle foto.
+          - name: titolo_pagina
+            label: Titolo della pagina
+            type: string
+            required: true
+            description: Il titolo che appare nella scheda del browser e nei risultati di Google.
+            options: { maxlength: 70 }
+          - name: descrizione_google
+            label: Descrizione per Google
+            type: text
+            required: true
+            description: Il testo breve che Google mostra sotto il titolo. Ideale tra 120 e 160 caratteri.
+            options: { maxlength: 160 }
+          - name: partita_iva
+            label: Partita IVA
+            type: string
+            required: true
+            pattern:
+              regex: '^[0-9]{11}$'
+              message: La partita IVA deve avere 11 cifre.
+
+      - name: menu
+        label: Voci del menu
+        type: object
+        fields:
+          - { name: home, label: Home, type: string, required: true }
+          - { name: chi_sono, label: Chi sono, type: string, required: true }
+          - { name: servizi, label: Servizi, type: string, required: true }
+          - { name: contatti, label: Contatti (pulsante colorato), type: string, required: true }
+
+      - name: hero
+        label: Apertura (prima schermata)
+        type: object
+        fields:
+          - name: titolo
+            label: Titolo grande
+            type: string
+            required: true
+            description: 'Le parole tra asterischi diventano azzurre in corsivo. Esempio: Trovare l''equilibrio nelle *relazioni.*'
+          - name: sottotitolo
+            label: Sottotitolo
+            type: text
+            required: true
+          - name: pulsante
+            label: Testo del pulsante
+            type: string
+            required: true
+          - name: foto
+            label: Foto
+            type: image
+            required: true
+            description: Foto verticale (ritratto). Viene mostrata in bianco e nero, a colori al passaggio del mouse.
+
+      - name: chi_sono
+        label: Chi sono
+        type: object
+        fields:
+          - name: titolo
+            label: Titolo
+            type: string
+            required: true
+            description: 'Le parole tra asterischi diventano azzurre. Esempio: Un approccio centrato sul *sistema*.'
+          - name: testo
+            label: Testo
+            type: text
+            required: true
+          - name: riquadro_chiaro
+            label: Riquadro chiaro (a sinistra)
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string, required: true }
+              - { name: testo, label: Testo, type: text, required: true }
+          - name: riquadro_colorato
+            label: Riquadro azzurro (a destra)
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string, required: true }
+              - { name: testo, label: Testo, type: text, required: true }
+
+      - name: curriculum
+        label: Curriculum
+        type: object
+        fields:
+          - name: titolo
+            label: Titolo della sezione
+            type: string
+            required: true
+          - name: formazione
+            label: Formazione
+            type: object
+            description: Le voci compaiono nell'ordine in cui sono qui (trascinale per riordinarle).
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: '{anno} · {titolo}'
+            fields:
+              - { name: anno, label: Anno, type: string, required: true, description: 'Es. 2023 oppure 2020-2022' }
+              - { name: titolo, label: Titolo, type: string, required: true }
+              - { name: descrizione, label: Descrizione, type: text, required: true }
+          - name: esperienze
+            label: Esperienze professionali
+            type: object
+            description: Le voci compaiono nell'ordine in cui sono qui (trascinale per riordinarle).
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: '{anno} · {titolo}'
+            fields:
+              - { name: anno, label: Anno, type: string, required: true, description: 'Es. 2024-Presente' }
+              - { name: titolo, label: Titolo, type: string, required: true }
+              - { name: descrizione, label: Descrizione, type: text, required: true }
+
+      - name: servizi
+        label: Servizi
+        type: object
+        fields:
+          - name: titolo
+            label: Titolo della sezione
+            type: string
+            required: true
+          - name: elenco
+            label: Servizi offerti
+            type: object
+            description: Il sito è pensato per 3 servizi affiancati.
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: '{titolo}'
+            fields:
+              - { name: titolo, label: Nome del servizio, type: string, required: true }
+              - { name: descrizione, label: Descrizione breve, type: text, required: true }
+              - { name: approfondimento, label: Testo di "Scopri di più", type: text, required: true }
+
+      - name: contatti
+        label: Contatti
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string, required: true }
+          - { name: sottotitolo, label: Sottotitolo, type: string, required: true }
+          - { name: telefono, label: Telefono, type: string, required: true, description: 'Es. +39 347 123 4567' }
+          - { name: email, label: Email, type: string, required: true }
+          - { name: indirizzo, label: Indirizzo dello studio, type: string, required: true }
+          - name: foto_studio
+            label: Foto dello studio
+            type: image
+            required: true
+            description: Foto orizzontale. Viene ritagliata a una striscia larga, mostrata in bianco e nero.
+          - name: modulo
+            label: Modulo di contatto
+            type: object
+            fields:
+              - { name: campo_nome, label: Segnaposto campo nome, type: string, required: true }
+              - { name: campo_email, label: Segnaposto campo email, type: string, required: true }
+              - { name: campo_messaggio, label: Segnaposto campo messaggio, type: string, required: true }
+              - { name: pulsante, label: Testo del pulsante, type: string, required: true }

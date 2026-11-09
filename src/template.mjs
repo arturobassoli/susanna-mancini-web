@@ -15,6 +15,9 @@ const testo = (s) => esc(s).trim().replace(/\r?\n/g, '<br>');
 const evidenzia = (s, classi) =>
   testo(s).replace(/\*(.+?)\*/g, `<span class="${classi}">$1</span>`);
 
+// Immagini locali: percorso relativo (il CMS può salvarle con "/" iniziale).
+const img = (s) => esc(/^https?:\/\//.test(s) ? s : s.replace(/^\/+/, ''));
+
 const menuLinks = (m) => [
   ['#home', m.home],
   ['#chi-sono', m.chi_sono],
@@ -124,7 +127,7 @@ ${links.map((l) => l.ultimo
         </div>
         <div class="order-1 md:order-2 relative flex justify-center">
             <div class="organic-shape bg-[#2788a5] w-full aspect-square opacity-20 absolute -top-4 -left-4 animate-slow-pulse"></div>
-            <img src="${esc(t.hero.foto)}" alt="${esc(g.nome)}" class="relative z-10 rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700 max-h-[60vh] max-w-[60vw]">
+            <img src="${img(t.hero.foto)}" alt="${esc(g.nome)}" class="relative z-10 rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700 max-h-[60vh] max-w-[60vw]">
         </div>
     </div>
 </section>
@@ -187,7 +190,7 @@ ${links.map((l) => l.ultimo
         </div>
 
         <div class="mb-16">
-            <img src="${esc(c.foto_studio)}" alt="Studio - ${esc(g.nome)}" loading="lazy" class="w-full h-96 object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+            <img src="${img(c.foto_studio)}" alt="Studio - ${esc(g.nome)}" loading="lazy" class="w-full h-96 object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700">
         </div>
 
         <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl grid md:grid-cols-2 gap-0">
