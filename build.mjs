@@ -1,9 +1,10 @@
 // Genera il sito statico in dist/ a partire da testi.json + src/template.mjs.
 // Uso: npm run build
-import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
+import sharp from 'sharp';
 import render from './src/template.mjs';
 
 const DIST = 'dist';
@@ -67,8 +68,40 @@ if (errori.length) {
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, 'fonts'), { recursive: true });
 
-writeFileSync(join(DIST, 'index.html'), render(testi, { anno: new Date().getFullYear() }));
-cpSync('asset', join(DIST, 'asset'), { recursive: true });
+// Le foto caricate (asset/immagini) non vengono copiate così come sono: solo quelle
+// usate nel sito vengono ottimizzate da ottimizzaFoto().
+cpSync('asset', join(DIST, 'asset'), {
+  recursive: true,
+  filter: (src) => !src.replace(/\\/g, '/').startsWith('asset/immagini'),
+});
+
+// Raddrizza (EXIF), riduce a max 1600px, converte in WebP e toglie i metadati (GPS ecc.).
+const fotoFatte = new Map(); // sorgente -> percorso pubblicato
+async function ottimizzaFoto(src) {
+  if (/^https?:\/\//.test(src)) return src;
+  const sorgente = src.replace(/^\/+/, '');
+  if (fotoFatte.has(sorgente)) return fotoFatte.get(sorgente);
+
+  let uscita = sorgente.replace(/\.[^./]+$/, '') + '.webp';
+  if ([...fotoFatte.values()].includes(uscita)) uscita = sorgente.replace(/\.([^./]+)$/, '-$1') + '.webp';
+
+  mkdirSync(dirname(join(DIST, uscita)), { recursive: true });
+  const info = await sharp(sorgente)
+    .rotate()
+    .resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(join(DIST, uscita));
+  const kb = (n) => `${Math.round(n / 1024)} KB`;
+  console.log(`  foto ${sorgente} (${kb(statSync(sorgente).size)}) -> ${uscita} (${kb(info.size)}, ${info.width}x${info.height})`);
+  fotoFatte.set(sorgente, uscita);
+  return uscita;
+}
+
+const pagina = structuredClone(testi);
+pagina.hero.foto = await ottimizzaFoto(testi.hero.foto);
+pagina.contatti.foto_studio = await ottimizzaFoto(testi.contatti.foto_studio);
+
+writeFileSync(join(DIST, 'index.html'), render(pagina, { anno: new Date().getFullYear() }));
 cpSync('src/script.js', join(DIST, 'script.js'));
 
 const FONTS = {
