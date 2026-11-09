@@ -100,9 +100,26 @@ const pagina = structuredClone(testi);
 pagina.hero.foto = await ottimizzaFoto(testi.hero.foto);
 pagina.contatti.foto_studio = await ottimizzaFoto(testi.contatti.foto_studio);
 
+// Indirizzo pubblico del sito (dalla Action: impostazioni di GitHub Pages).
+// Serve per canonical e anteprime social; in locale di solito non è impostato.
+const sito = process.env.SITE_URL ? process.env.SITE_URL.replace(/\/*$/, '/') : '';
+
+// Anteprima per WhatsApp/Facebook/LinkedIn: JPG 1200x630 ritagliato sulla foto principale.
+let anteprima;
+if (!/^https?:\/\//.test(testi.hero.foto)) {
+  const src = 'asset/immagini/anteprima-social.jpg';
+  await sharp(testi.hero.foto.replace(/^\/+/, ''))
+    .rotate()
+    .resize({ width: 1200, height: 630, fit: 'cover', position: sharp.strategy.attention })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toFile(join(DIST, src));
+  anteprima = { src, width: 1200, height: 630 };
+}
+
 const anno = new Date().getFullYear();
-writeFileSync(join(DIST, 'index.html'), render(pagina, { anno }));
-writeFileSync(join(DIST, 'privacy.html'), renderPrivacy(pagina, { anno }));
+writeFileSync(join(DIST, 'index.html'), render(pagina, { anno, sito, anteprima }));
+writeFileSync(join(DIST, 'privacy.html'), renderPrivacy(pagina, { anno, sito }));
+if (!sito) console.log('  (SITE_URL non impostato: niente canonical e anteprime social)');
 cpSync('src/script.js', join(DIST, 'script.js'));
 
 const FONTS = {

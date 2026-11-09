@@ -18,13 +18,38 @@ const evidenzia = (s, classi) =>
 // Immagini locali: percorso relativo (il CMS può salvarle con "/" iniziale).
 const img = (s) => esc(/^https?:\/\//.test(s) ? s : s.replace(/^\/+/, ''));
 
-const head = (titolo, descrizione) => `<!DOCTYPE html>
+// meta: { sito, percorso, nomeSito, immagine } -> canonical + anteprima per i social.
+// I tag con URL assoluto vengono aggiunti solo se l'indirizzo del sito è noto (SITE_URL).
+const metaSocial = (titolo, descrizione, m = {}) => {
+  if (!m.sito) return '';
+  const url = m.sito + (m.percorso || '');
+  const righe = [
+    `<link rel="canonical" href="${esc(url)}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:locale" content="it_IT">`,
+    `<meta property="og:url" content="${esc(url)}">`,
+    `<meta property="og:title" content="${titolo}">`,
+    `<meta property="og:description" content="${descrizione}">`,
+  ];
+  if (m.nomeSito) righe.push(`<meta property="og:site_name" content="${m.nomeSito}">`);
+  if (m.immagine) {
+    righe.push(
+      `<meta property="og:image" content="${esc(m.sito + m.immagine.src)}">`,
+      `<meta property="og:image:width" content="${m.immagine.width}">`,
+      `<meta property="og:image:height" content="${m.immagine.height}">`,
+      `<meta name="twitter:card" content="summary_large_image">`,
+    );
+  }
+  return righe.map((r) => `\n    ${r}`).join('');
+};
+
+const head = (titolo, descrizione, meta) => `<!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${titolo}</title>
-    <meta name="description" content="${descrizione}">
+    <meta name="description" content="${descrizione}">${metaSocial(titolo, descrizione, meta)}
     <link rel="icon" type="image/png" href="asset/symbol_colored.png">
     <link rel="preload" href="fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -70,13 +95,13 @@ const servizio = (s, idx) => `
                 </div>
             </div>`;
 
-export default function render(t, { anno }) {
+export default function render(t, { anno, sito, anteprima }) {
   const g = t.generale;
   const c = t.contatti;
   const links = menuLinks(t.menu);
   const telHref = c.telefono.replace(/[^\d+]/g, '');
 
-  return `${head(esc(g.titolo_pagina), esc(g.descrizione_google))}
+  return `${head(esc(g.titolo_pagina), esc(g.descrizione_google), { sito, percorso: '', nomeSito: esc(g.nome), immagine: anteprima })}
 <body class="antialiased text-gray-800">
 
 <nav class="fixed w-full z-50 glass-nav">
@@ -243,13 +268,13 @@ ${footer(g, anno)}
 // Se si aggiungono servizi esterni (mappe, moduli, analytics) questo testo va aggiornato.
 const PRIVACY_AGGIORNATA = '9 novembre 2026';
 
-export function renderPrivacy(t, { anno }) {
+export function renderPrivacy(t, { anno, sito }) {
   const g = t.generale;
   const c = t.contatti;
   const h2 = 'text-2xl md:text-3xl mt-12 mb-4 text-gray-900';
   const p = 'text-gray-600 leading-relaxed mb-4';
 
-  return `${head(`Privacy | ${esc(g.nome)}`, `Informativa sul trattamento dei dati personali - ${esc(g.nome)}`)}
+  return `${head(`Privacy | ${esc(g.nome)}`, `Informativa sul trattamento dei dati personali - ${esc(g.nome)}`, { sito, percorso: 'privacy.html', nomeSito: esc(g.nome) })}
 <body class="antialiased text-gray-800">
 
 <nav class="glass-nav">
