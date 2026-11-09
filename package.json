@@ -1,0 +1,23 @@
+{
+  "name": "susanna-mancini-web",
+  "version": "1.0.0",
+  "description": "Sito della Dr.ssa Susanna Mancini (statico)",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && npx --yes serve dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturobassoli/susanna-mancini-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arturobassoli/susanna-mancini-web/issues"
+  },
+  "homepage": "https://github.com/arturobassoli/susanna-mancini-web#readme",
+  "devDependencies": {
+    "@fontsource/montserrat": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "tailwindcss": "^3.4.19"
+  },
+  "private": true
+}

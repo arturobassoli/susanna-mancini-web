@@ -1,33 +1,33 @@
 {
-  "seo": {
-    "title": "Dr.ssa Susanna Mancini | Psicologa Psicoterapeuta",
-    "piva": "12345678901",
-    "year": "2025"
+  "generale": {
+    "nome": "Dr.ssa Susanna Mancini",
+    "titolo_pagina": "Dr.ssa Susanna Mancini | Psicologa Psicoterapeuta",
+    "descrizione_google": "Psicologa clinica a Roma, specializzanda in Psicoterapia Sistemico-Relazionale. Percorsi individuali, di coppia e familiari, in studio e online.",
+    "partita_iva": "12345678901"
   },
-  "navbar": {
-    "logo": "S.M.",
-    "links": ["Home", "Chi Sono", "Servizi", "Contatti"]
+  "menu": {
+    "home": "Home",
+    "chi_sono": "Chi Sono",
+    "servizi": "Servizi",
+    "contatti": "Contatti"
   },
   "hero": {
-    "titolo": "Trovare l'equilibrio nelle <span class='italic text-[#2788a5]'>relazioni.</span>",
+    "titolo": "Trovare l'equilibrio nelle *relazioni.*",
     "sottotitolo": "Dr.ssa Susanna Mancini. Psicologa clinica specializzanda in Psicoterapia Sistemico-Relazionale. Accompagno individui, coppie e famiglie verso una nuova consapevolezza.",
-    "cta_button": "Inizia il tuo percorso"
+    "pulsante": "Inizia il tuo percorso",
+    "foto": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
   },
   "chi_sono": {
-    "titolo": "Un approccio centrato sul <span class='text-[#2788a5]'>sistema</span>.",
+    "titolo": "Un approccio centrato sul *sistema*.",
     "testo": "Non siamo isole, ma parte di una rete intricata di relazioni. Il mio lavoro consiste nell'esplorare questi legami per sciogliere i nodi che impediscono la crescita personale e il benessere comune.",
-    "cards": [
-      {
-        "titolo": "Visione",
-        "testo": "Ogni sintomo è un messaggio che il sistema sta inviando.",
-        "stile": "visione"
-      },
-      {
-        "titolo": "Metodo",
-        "testo": "Dialogo attivo, ascolto profondo ed empatia radicale.",
-        "stile": "metodo"
-      }
-    ]
+    "riquadro_chiaro": {
+      "titolo": "Visione",
+      "testo": "Ogni sintomo è un messaggio che il sistema sta inviando."
+    },
+    "riquadro_colorato": {
+      "titolo": "Metodo",
+      "testo": "Dialogo attivo, ascolto profondo ed empatia radicale."
+    }
   },
   "curriculum": {
     "titolo": "Formazione e Percorso Professionale",
@@ -68,24 +68,21 @@
   },
   "servizi": {
     "titolo": "Servizi Clinici",
-    "items": [
+    "elenco": [
       {
         "titolo": "Terapia Individuale",
         "descrizione": "Percorsi personalizzati per affrontare ansia, depressione e difficoltà relazionali.",
-        "dettagli_estesi": "La terapia individuale rappresenta uno spazio intimo e riservato dove esplorare le proprie difficoltà emotive, i conflitti interiori e i pattern comportamentali che ostacolano il benessere. Utilizzo un approccio sistemico-relazionale che considera il singolo all'interno del suo contesto di vita, sia esso familiare, professionale o sociale. Ogni seduta è strutturata per favorire l'insight personale e lo sviluppo di nuove risorse coping. La durata di ogni percorso varia da alcuni mesi a percorsi più lunghi, a seconda delle necessità e degli obiettivi condivisi.",
-        "icona": "user"
+        "approfondimento": "La terapia individuale rappresenta uno spazio intimo e riservato dove esplorare le proprie difficoltà emotive, i conflitti interiori e i pattern comportamentali che ostacolano il benessere. Utilizzo un approccio sistemico-relazionale che considera il singolo all'interno del suo contesto di vita, sia esso familiare, professionale o sociale. Ogni seduta è strutturata per favorire l'insight personale e lo sviluppo di nuove risorse di coping. La durata di ogni percorso varia da alcuni mesi a percorsi più lunghi, a seconda delle necessità e degli obiettivi condivisi."
       },
       {
         "titolo": "Terapia di Coppia",
         "descrizione": "Spazio di mediazione e ascolto per ricostruire la comunicazione e l'intimità.",
-        "dettagli_estesi": "La relazione di coppia è una danza complessa dove incomprensioni, aspettative non dichiarate e ferite accumulate possono erodere la connessione. Offro uno spazio neutrale dove entrambi i partner possono essere ascoltati senza giudizio. Attraverso tecniche di comunicazione consapevole e rielaborazione dei conflitti, aiuto le coppie a ritrovare dialogo, intimità emotiva e sessuale. Il focus è tanto sulla risoluzione dei conflitti specifici quanto sulla ricostruzione della base relazionale.",
-        "icona": "users"
+        "approfondimento": "La relazione di coppia è una danza complessa dove incomprensioni, aspettative non dichiarate e ferite accumulate possono erodere la connessione. Offro uno spazio neutrale dove entrambi i partner possono essere ascoltati senza giudizio. Attraverso tecniche di comunicazione consapevole e rielaborazione dei conflitti, aiuto le coppie a ritrovare dialogo, intimità emotiva e sessuale. Il focus è tanto sulla risoluzione dei conflitti specifici quanto sulla ricostruzione della base relazionale."
       },
       {
         "titolo": "Terapia Familiare",
         "descrizione": "Interventi volti a migliorare le dinamiche tra genitori e figli in fasi critiche.",
-        "dettagli_estesi": "La famiglia è il primo sistema relazionale dove impariamo i pattern di comunicazione, attaccamento e gestione delle emozioni. Quando emergono difficoltà—che siano conflitti genitoriali, rebilione adolescenziale o comunicazione disfunzionale—interveniamo sul sistema nel suo complesso. La terapia familiare permette a ogni membro di essere ascoltato, comprende le lealtà nascoste e i ruoli assunti, e favorisce nuovi equilibri più sani e consapevoli. Particolarmente efficace durante transizioni critiche come separazioni, lutti o cambiamenti generazionali.",
-        "icona": "home"
+        "approfondimento": "La famiglia è il primo sistema relazionale dove impariamo i pattern di comunicazione, attaccamento e gestione delle emozioni. Quando emergono difficoltà — che siano conflitti genitoriali, ribellione adolescenziale o comunicazione disfunzionale — interveniamo sul sistema nel suo complesso. La terapia familiare permette a ogni membro di essere ascoltato, comprende le lealtà nascoste e i ruoli assunti, e favorisce nuovi equilibri più sani e consapevoli. Particolarmente efficace durante transizioni critiche come separazioni, lutti o cambiamenti generazionali."
       }
     ]
   },
@@ -96,14 +93,11 @@
     "email": "info@susannamancini.it",
     "indirizzo": "Via della Lungara, 23 - 00165 Roma (RM)",
     "foto_studio": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
-    "form": {
-      "nome_placeholder": "Nome completo",
-      "email_placeholder": "Email",
-      "messaggio_placeholder": "Il tuo messaggio",
-      "submit_button": "Invia Richiesta"
+    "modulo": {
+      "campo_nome": "Nome completo",
+      "campo_email": "Email",
+      "campo_messaggio": "Il tuo messaggio",
+      "pulsante": "Invia Richiesta"
     }
-  },
-  "footer": {
-    "copyright": "© 2025 Dr.ssa Susanna Mancini | P.IVA 12345678901 | Privacy & Cookies"
   }
 }
