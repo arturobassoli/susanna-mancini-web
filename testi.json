@@ -3,7 +3,8 @@
     "nome": "Dr.ssa Susanna Mancini",
     "titolo_pagina": "Dr.ssa Susanna Mancini | Psicologa Psicoterapeuta",
     "descrizione_google": "Psicologa clinica a Roma, specializzanda in Psicoterapia Sistemico-Relazionale. Percorsi individuali, di coppia e familiari, in studio e online.",
-    "partita_iva": "12345678901"
+    "partita_iva": "12345678901",
+    "iscrizione_albo": "Iscritta all'Ordine degli Psicologi del Lazio n. 00000"
   },
   "menu": {
     "home": "Home",
@@ -92,12 +93,6 @@
     "telefono": "+39 347 000 0000",
     "email": "info@susannamancini.it",
     "indirizzo": "Via della Lungara, 23 - 00165 Roma (RM)",
-    "foto_studio": "asset/immagini/foto-studio.jpg",
-    "modulo": {
-      "campo_nome": "Nome completo",
-      "campo_email": "Email",
-      "campo_messaggio": "Il tuo messaggio",
-      "pulsante": "Invia Richiesta"
-    }
+    "foto_studio": "asset/immagini/foto-studio.jpg"
   }
 }

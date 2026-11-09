@@ -46,6 +46,11 @@ content:
             pattern:
               regex: '^[0-9]{11}$'
               message: La partita IVA deve avere 11 cifre.
+          - name: iscrizione_albo
+            label: Iscrizione all'Albo
+            type: string
+            required: true
+            description: "Compare nel footer. Esempio: Iscritta all'Ordine degli Psicologi del Lazio n. 12345"
 
       - name: menu
         label: Voci del menu
@@ -174,11 +179,3 @@ content:
             type: image
             required: true
             description: Foto orizzontale. Viene ritagliata a una striscia larga, mostrata in bianco e nero.
-          - name: modulo
-            label: Modulo di contatto
-            type: object
-            fields:
-              - { name: campo_nome, label: Segnaposto campo nome, type: string, required: true }
-              - { name: campo_email, label: Segnaposto campo email, type: string, required: true }
-              - { name: campo_messaggio, label: Segnaposto campo messaggio, type: string, required: true }
-              - { name: pulsante, label: Testo del pulsante, type: string, required: true }

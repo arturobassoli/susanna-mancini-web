@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import sharp from 'sharp';
-import render from './src/template.mjs';
+import render, { renderPrivacy } from './src/template.mjs';
 
 const DIST = 'dist';
 const require = createRequire(import.meta.url);
@@ -14,7 +14,7 @@ const require = createRequire(import.meta.url);
 // Forma attesa di testi.json: "" = testo obbligatorio, [ {...} ] = elenco (almeno 1 voce).
 const voce = { anno: '', titolo: '', descrizione: '' };
 const SCHEMA = {
-  generale: { nome: '', titolo_pagina: '', descrizione_google: '', partita_iva: '' },
+  generale: { nome: '', titolo_pagina: '', descrizione_google: '', partita_iva: '', iscrizione_albo: '' },
   menu: { home: '', chi_sono: '', servizi: '', contatti: '' },
   hero: { titolo: '', sottotitolo: '', pulsante: '', foto: '' },
   chi_sono: {
@@ -26,7 +26,6 @@ const SCHEMA = {
   servizi: { titolo: '', elenco: [{ titolo: '', descrizione: '', approfondimento: '' }] },
   contatti: {
     titolo: '', sottotitolo: '', telefono: '', email: '', indirizzo: '', foto_studio: '',
-    modulo: { campo_nome: '', campo_email: '', campo_messaggio: '', pulsante: '' },
   },
 };
 
@@ -101,7 +100,9 @@ const pagina = structuredClone(testi);
 pagina.hero.foto = await ottimizzaFoto(testi.hero.foto);
 pagina.contatti.foto_studio = await ottimizzaFoto(testi.contatti.foto_studio);
 
-writeFileSync(join(DIST, 'index.html'), render(pagina, { anno: new Date().getFullYear() }));
+const anno = new Date().getFullYear();
+writeFileSync(join(DIST, 'index.html'), render(pagina, { anno }));
+writeFileSync(join(DIST, 'privacy.html'), renderPrivacy(pagina, { anno }));
 cpSync('src/script.js', join(DIST, 'script.js'));
 
 const FONTS = {

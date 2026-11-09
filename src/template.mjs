@@ -18,6 +18,23 @@ const evidenzia = (s, classi) =>
 // Immagini locali: percorso relativo (il CMS può salvarle con "/" iniziale).
 const img = (s) => esc(/^https?:\/\//.test(s) ? s : s.replace(/^\/+/, ''));
 
+const head = (titolo, descrizione) => `<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${titolo}</title>
+    <meta name="description" content="${descrizione}">
+    <link rel="icon" type="image/png" href="asset/symbol_colored.png">
+    <link rel="preload" href="fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>`;
+
+const footer = (g, anno) => `<footer class="py-8 px-6 text-center text-xs text-gray-400 uppercase tracking-widest leading-relaxed">
+    &copy; ${anno} ${testo(g.nome)} | ${testo(g.iscrizione_albo)} | P.IVA ${testo(g.partita_iva)} | <a href="privacy.html" class="underline hover:text-[#2788a5] transition">Privacy</a>
+</footer>`;
+
 const menuLinks = (m) => [
   ['#home', m.home],
   ['#chi-sono', m.chi_sono],
@@ -59,18 +76,7 @@ export default function render(t, { anno }) {
   const links = menuLinks(t.menu);
   const telHref = c.telefono.replace(/[^\d+]/g, '');
 
-  return `<!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${esc(g.titolo_pagina)}</title>
-    <meta name="description" content="${esc(g.descrizione_google)}">
-    <link rel="icon" type="image/png" href="asset/symbol_colored.png">
-    <link rel="preload" href="fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="style.css">
-</head>
+  return `${head(esc(g.titolo_pagina), esc(g.descrizione_google))}
 <body class="antialiased text-gray-800">
 
 <nav class="fixed w-full z-50 glass-nav">
@@ -193,12 +199,9 @@ ${links.map((l) => l.ultimo
             <img src="${img(c.foto_studio)}" alt="Studio - ${esc(g.nome)}" loading="lazy" class="w-full h-96 object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700">
         </div>
 
-        <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl grid md:grid-cols-2 gap-0">
-            <div class="p-12 bg-[#2788a5] text-white flex flex-col justify-center">
-                <h2 class="text-3xl mb-8 font-playfair">${testo(c.titolo)}</h2>
-                <p class="mb-10 opacity-90">${testo(c.sottotitolo)}</p>
-
-                <div class="space-y-6 mb-8">
+        <div class="bg-[#2788a5] text-white rounded-[3rem] shadow-2xl p-10 md:p-12">
+            <p class="text-xl md:text-2xl font-playfair text-center mb-10">${testo(c.sottotitolo)}</p>
+            <div class="grid gap-8 md:grid-cols-3 md:justify-items-center">
                     <div class="flex items-start gap-4">
                         <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         <div>
@@ -222,25 +225,64 @@ ${links.map((l) => l.ultimo
                             <p class="font-semibold">${testo(c.indirizzo)}</p>
                         </div>
                     </div>
-                </div>
             </div>
-
-            <!-- TODO: il modulo non invia ancora nulla (serve un servizio esterno, es. Formspree/Web3Forms) -->
-            <form class="p-12 space-y-4 bg-white flex flex-col justify-center">
-                <input type="text" placeholder="${esc(c.modulo.campo_nome)}" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5] bg-transparent">
-                <input type="email" placeholder="${esc(c.modulo.campo_email)}" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5] bg-transparent">
-                <textarea placeholder="${esc(c.modulo.campo_messaggio)}" rows="4" class="w-full p-4 border-b border-gray-200 focus:outline-none focus:border-[#2788a5] bg-transparent resize-none"></textarea>
-                <button class="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#2788a5] transition duration-500 font-semibold">${testo(c.modulo.pulsante)}</button>
-            </form>
         </div>
     </div>
 </section>
 
-<footer class="py-8 text-center text-xs text-gray-400 uppercase tracking-widest">
-    &copy; ${anno} ${testo(g.nome)} | P.IVA ${testo(g.partita_iva)} | Privacy &amp; Cookies
-</footer>
+${footer(g, anno)}
 
 <script src="script.js"></script>
+</body>
+</html>
+`;
+}
+
+// --- Pagina privacy -----------------------------------------------------
+// Informativa minima: il sito non usa cookie, statistiche, moduli né risorse esterne.
+// Se si aggiungono servizi esterni (mappe, moduli, analytics) questo testo va aggiornato.
+const PRIVACY_AGGIORNATA = '9 novembre 2026';
+
+export function renderPrivacy(t, { anno }) {
+  const g = t.generale;
+  const c = t.contatti;
+  const h2 = 'text-2xl md:text-3xl mt-12 mb-4 text-gray-900';
+  const p = 'text-gray-600 leading-relaxed mb-4';
+
+  return `${head(`Privacy | ${esc(g.nome)}`, `Informativa sul trattamento dei dati personali - ${esc(g.nome)}`)}
+<body class="antialiased text-gray-800">
+
+<nav class="glass-nav">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="./"><img src="asset/symbol_bold_colored.png" alt="${esc(g.nome)}" class="h-12 w-auto"></a>
+        <a href="./" class="text-sm uppercase tracking-widest font-semibold hover:text-[#2788a5] transition">&larr; Torna al sito</a>
+    </div>
+</nav>
+
+<main class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-4xl md:text-5xl mb-6 text-gray-900">Informativa privacy</h1>
+    <p class="${p}">Informativa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR) per chi visita questo sito.</p>
+
+    <h2 class="${h2}">Titolare del trattamento</h2>
+    <p class="${p}">${testo(g.nome)}, ${testo(c.indirizzo)}. Email: <a href="mailto:${esc(c.email)}" class="text-[#2788a5] underline">${testo(c.email)}</a>.</p>
+
+    <h2 class="${h2}">Dati di navigazione</h2>
+    <p class="${p}">Il sito è ospitato su GitHub Pages (GitHub, Inc.). Per garantire la sicurezza e il funzionamento del servizio, GitHub registra alcuni dati tecnici delle visite, come l'indirizzo IP. Il titolare non utilizza questi dati e non li incrocia con altre informazioni. Per i dettagli si rimanda all'<a href="https://docs.github.com/it/site-policy/privacy-policies/github-general-privacy-statement" class="text-[#2788a5] underline" rel="noopener">informativa di GitHub</a>.</p>
+
+    <h2 class="${h2}">Cookie</h2>
+    <p class="${p}">Il sito non usa cookie, né strumenti di statistica o di profilazione, e non carica contenuti da servizi di terze parti.</p>
+
+    <h2 class="${h2}">Dati inviati volontariamente</h2>
+    <p class="${p}">Se contatti il titolare per telefono o email, i dati che fornisci (ad esempio nome, recapiti e contenuto del messaggio) sono usati solo per risponderti e, se lo desideri, per fissare un appuntamento. Sono trattati nel rispetto del segreto professionale e conservati solo per il tempo necessario. Ti invitiamo a non inviare per email informazioni dettagliate sulla tua salute: potrai parlarne di persona durante il primo colloquio.</p>
+
+    <h2 class="${h2}">I tuoi diritti</h2>
+    <p class="${p}">Puoi chiedere in qualsiasi momento di accedere ai tuoi dati, correggerli, cancellarli o limitarne il trattamento, e opporti al trattamento (artt. 15-22 GDPR), scrivendo all'indirizzo email indicato sopra. Hai anche il diritto di presentare reclamo al <a href="https://www.garanteprivacy.it" class="text-[#2788a5] underline" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+
+    <p class="text-sm text-gray-400 mt-12">Ultimo aggiornamento: ${PRIVACY_AGGIORNATA}</p>
+</main>
+
+${footer(g, anno)}
+
 </body>
 </html>
 `;
