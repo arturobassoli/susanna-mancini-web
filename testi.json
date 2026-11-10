@@ -71,9 +71,14 @@
     "titolo": "Servizi Clinici",
     "elenco": [
       {
-        "titolo": "Terapia Individuale",
-        "descrizione": "Percorsi personalizzati per affrontare ansia, depressione e difficoltà relazionali.",
-        "approfondimento": "La terapia individuale rappresenta uno spazio intimo e riservato dove esplorare le proprie difficoltà emotive, i conflitti interiori e i pattern comportamentali che ostacolano il benessere. Utilizzo un approccio sistemico-relazionale che considera il singolo all'interno del suo contesto di vita, sia esso familiare, professionale o sociale. Ogni seduta è strutturata per favorire l'insight personale e lo sviluppo di nuove risorse di coping. La durata di ogni percorso varia da alcuni mesi a percorsi più lunghi, a seconda delle necessità e degli obiettivi condivisi."
+        "titolo": "Terapia Individuale Adulti",
+        "descrizione": "Percorsi personalizzati per affrontar difficoltà personali o fasi di crisi e cambiamento.",
+        "approfondimento": "La terapia individuale rappresenta uno spazio dove esplorare le proprie difficoltà emotive, i conflitti interiori e i pattern comportamentali che ostacolano il benessere. Utilizzo un approccio sistemico-relazionale che considera il singolo all'interno del suo contesto di vita, sia esso familiare, professionale o sociale. Ogni seduta è strutturata per favorire l'insight personale e lo sviluppo di nuove risorse di coping. La durata di ogni percorso varia da alcuni mesi a percorsi più lunghi, a seconda delle necessità e degli obiettivi condivisi."
+      },
+      {
+        "titolo": "Terapia Adolescenti",
+        "descrizione": "Uno spazio di ascolto e crescita per affrontare le sfide dell’adolescenza, in collaborazione con i genitori.",
+        "approfondimento": "La terapia con adolescenti offre uno spazio di ascolto e confronto per affrontare le difficoltà tipiche di questa fase di crescita, come problematiche legate all’autostima, alla gestione delle emozioni, alle relazioni con i pari, alla scuola, al rapporto con il proprio corpo e ai conflitti familiari. Il percorso si basa su un approccio sistemico-relazionale e si svolge in sinergia con i genitori, coinvolgendoli attraverso momenti di confronto e collaborazione, per favorire una maggiore comprensione dei bisogni dell’adolescente e promuovere il suo benessere, nel rispetto dei suoi tempi e della sua individualità."
       },
       {
         "titolo": "Terapia di Coppia",
