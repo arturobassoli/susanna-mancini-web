@@ -34,14 +34,14 @@
     "titolo": "Formazione e Percorso Professionale",
     "formazione": [
       {
-        "anno": "2023",
-        "titolo": "Specializzazione in Psicoterapia Sistemico-Relazionale",
-        "descrizione": "Istituto di Terapia Familiare, Roma. Approccio orientato alla dinamica dei sistemi relazionali."
-      },
-      {
         "anno": "2024-2028",
         "titolo": "Specializzazione in Psicoterapia Sistemico-Relazionale integrata con la Teoria dell’Attaccamento",
         "descrizione": "Scuola di specializzazione quadriennale in psicoterapia presso Scuola IRIS di Milano"
+      },
+      {
+        "anno": "2023",
+        "titolo": "Laurea magistrale in psicologia clinica e neuropsicologia nel ciclo di vita",
+        "descrizione": "Università degli Studi di Milano-Bicocca"
       },
       {
         "anno": "2020",
@@ -89,7 +89,7 @@
   },
   "contatti": {
     "titolo": "Prenota un colloquio",
-    "sottotitolo": "Ricevo su appuntamento a Milano e online ovunque.",
+    "sottotitolo": "Ricevo su appuntamento a Milano e online ovunque",
     "telefono": "+39 379 107 8382",
     "email": "mancinisusanna.psico@gmail.com",
     "indirizzo": "L’indirizzo preciso dello studio verrà fornito solo in seguito di contatto - Milano zona Porta Romana M3",
