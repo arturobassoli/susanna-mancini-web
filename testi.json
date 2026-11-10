@@ -1,10 +1,10 @@
 {
   "generale": {
     "nome": "Dr.ssa Susanna Mancini",
-    "titolo_pagina": "Dr.ssa Susanna Mancini | Psicologa Psicoterapeuta",
-    "descrizione_google": "Psicologa clinica a Roma, specializzanda in Psicoterapia Sistemico-Relazionale. Percorsi individuali, di coppia e familiari, in studio e online.",
-    "partita_iva": "12345678901",
-    "iscrizione_albo": "Iscritta all'Ordine degli Psicologi del Lazio n. 00000"
+    "titolo_pagina": "Dr.ssa Susanna Mancini | Psicologa ",
+    "descrizione_google": "Psicologa clinica a Milano, specializzanda in Psicoterapia Sistemico-Relazionale. Percorsi individuali, di coppia e familiari, in studio e online.",
+    "partita_iva": "14251080967",
+    "iscrizione_albo": "Iscritta all'Ordine degli Psicologi della Lombardia n. 28908"
   },
   "menu": {
     "home": "Home",
@@ -16,18 +16,18 @@
     "titolo": "Trovare l'equilibrio nelle *relazioni.*",
     "sottotitolo": "Dr.ssa Susanna Mancini. Psicologa clinica specializzanda in Psicoterapia Sistemico-Relazionale. Accompagno individui, coppie e famiglie verso una nuova consapevolezza.",
     "pulsante": "Inizia il tuo percorso",
-    "foto": "asset/immagini/foto-ritratto.jpg"
+    "foto": "asset/immagini/susi-cv.jpeg"
   },
   "chi_sono": {
-    "titolo": "Un approccio centrato sul *sistema*.",
-    "testo": "Non siamo isole, ma parte di una rete intricata di relazioni. Il mio lavoro consiste nell'esplorare questi legami per sciogliere i nodi che impediscono la crescita personale e il benessere comune.",
+    "titolo": "Un approccio centrato sulle *relazioni*.",
+    "testo": "Non siamo isole, ma parte di una rete intricata di relazioni. Il mio lavoro consiste nell'esplorare questi legami per sciogliere i nodi che impediscono benessere e cambiamento.",
     "riquadro_chiaro": {
       "titolo": "Visione",
-      "testo": "Ogni sintomo è un messaggio che il sistema sta inviando."
+      "testo": "Le difficoltà possono essere comprese soltanto se inserite nella rete di relazioni attuali e passate della persona, comprendendone funzioni e significato."
     },
     "riquadro_colorato": {
       "titolo": "Metodo",
-      "testo": "Dialogo attivo, ascolto profondo ed empatia radicale."
+      "testo": "Dialogo, ascolto empatico e sguardo sul sistema."
     }
   },
   "curriculum": {
@@ -39,31 +39,31 @@
         "descrizione": "Istituto di Terapia Familiare, Roma. Approccio orientato alla dinamica dei sistemi relazionali."
       },
       {
-        "anno": "2021",
-        "titolo": "Laurea Magistrale in Psicologia Clinica",
-        "descrizione": "Università La Sapienza, Roma. Tesi sulla comunicazione nella coppia contemporanea."
+        "anno": "2024-2028",
+        "titolo": "Specializzazione in Psicoterapia Sistemico-Relazionale integrata con la Teoria dell’Attaccamento",
+        "descrizione": "Scuola di specializzazione quadriennale in psicoterapia presso Scuola IRIS di Milano"
       },
       {
-        "anno": "2019",
-        "titolo": "Laurea Triennale in Scienze Psicologiche",
-        "descrizione": "Università La Sapienza, Roma. Votazione: 110/110 con lode."
+        "anno": "2020",
+        "titolo": "Laurea Triennale in Scienze e Tecniche Psicologiche",
+        "descrizione": "Università degli Studi di Milano-Bicocca"
       }
     ],
     "esperienze": [
       {
-        "anno": "2024-Presente",
-        "titolo": "Psicologa Clinica Libera Professionista",
-        "descrizione": "Conduzione di percorsi terapeutici individuali, di coppia e familiari presso lo studio privato a Roma."
+        "anno": "2025-Presente",
+        "titolo": "Tirocinante psicologa presso Consultorio Familiare",
+        "descrizione": "Conduzione di percorsi psicologi individuali, di coppia e familiari presso Consultorio Familiare"
       },
       {
-        "anno": "2022-2023",
-        "titolo": "Psicologa presso Centro Salute Mentale",
+        "anno": "2025-Presente",
+        "titolo": "Psicologa presso studio privato",
         "descrizione": "Supporto psicoterapeutico in ambito pubblico, con focus su disturbi dell'umore e ansia."
       },
       {
-        "anno": "2020-2022",
-        "titolo": "Tirocinante Psicologa Clinica",
-        "descrizione": "Stage formativo presso struttura ospedaliera con supervisione specializzata."
+        "anno": "2022-2023",
+        "titolo": "Tirocinio Pratico-Valutativo ",
+        "descrizione": "Tirocinio pratico-valutativo presso Istituto Neurologico Carlo Besta di Milano"
       }
     ]
   },
