@@ -48,7 +48,7 @@ l'anteprima per i link condivisi (`anteprima-social.jpg`, 1200×630).
 ## Indirizzo del sito
 
 La Action ricava l'indirizzo pubblico dalle impostazioni di GitHub Pages (`SITE_URL`) e lo usa per
-il link canonico e le anteprime social. **Dopo aver cambiato il dominio personalizzato** va
+il link canonico, le anteprime social e `sitemap.xml` (con `robots.txt` che la indica ai motori di ricerca). **Dopo aver cambiato il dominio personalizzato** va
 rilanciata una build (un salvataggio dal pannello o un push qualsiasi su `main`).
 
 ## Lavorare in locale

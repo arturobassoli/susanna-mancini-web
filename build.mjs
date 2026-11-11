@@ -119,7 +119,25 @@ if (!/^https?:\/\//.test(testi.hero.foto)) {
 const anno = new Date().getFullYear();
 writeFileSync(join(DIST, 'index.html'), render(pagina, { anno, sito, anteprima }));
 writeFileSync(join(DIST, 'privacy.html'), renderPrivacy(pagina, { anno, sito }));
-if (!sito) console.log('  (SITE_URL non impostato: niente canonical e anteprime social)');
+if (!sito) console.log('  (SITE_URL non impostato: niente canonical, anteprime social e sitemap)');
+
+// robots.txt e sitemap.xml per i motori di ricerca (la sitemap richiede URL assoluti).
+// lastmod = data dell'ultimo commit, cioè dell'ultima modifica ai contenuti.
+let ultimaModifica = new Date().toISOString().slice(0, 10);
+try {
+  ultimaModifica = execFileSync('git', ['log', '-1', '--format=%cs'], { encoding: 'utf8' }).trim() || ultimaModifica;
+} catch { /* fuori da git: data di oggi */ }
+
+writeFileSync(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n${sito ? `\nSitemap: ${sito}sitemap.xml\n` : ''}`);
+if (sito) {
+  const url = (percorso) => `  <url>\n    <loc>${sito}${percorso}</loc>\n    <lastmod>${ultimaModifica}</lastmod>\n  </url>`;
+  writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${url('')}
+${url('privacy.html')}
+</urlset>
+`);
+}
 cpSync('src/script.js', join(DIST, 'script.js'));
 
 const FONTS = {
